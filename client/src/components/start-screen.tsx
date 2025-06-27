@@ -47,10 +47,16 @@ export default function StartScreen({ onStartTest }: StartScreenProps) {
         </Card>
         
         {/* AdSense Block Ad */}
-        <div className="mt-8">
+        <div className="mt-8 space-y-6">
           <AdSenseAd 
             adSlot="1234567890"
             className="text-center"
+          />
+          
+          <AdSenseAd 
+            adSlot="9876543210"
+            className="text-center"
+            adFormat="horizontal"
           />
         </div>
       </div>

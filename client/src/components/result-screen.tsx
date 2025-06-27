@@ -179,11 +179,17 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
             </Button>
           </div>
 
-          {/* AdSense Block Ad */}
-          <div className="mt-12">
+          {/* AdSense Block Ads */}
+          <div className="mt-12 space-y-8">
             <AdSenseAd 
               adSlot="3456789012"
               className="text-center"
+            />
+            
+            <AdSenseAd 
+              adSlot="5678901234"
+              className="text-center"
+              adFormat="rectangle"
             />
           </div>
         </div>

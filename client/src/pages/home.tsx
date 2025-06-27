@@ -3,6 +3,7 @@ import StartScreen from "@/components/start-screen";
 import QuestionScreen from "@/components/question-screen";
 import ResultScreen from "@/components/result-screen";
 import VignetteAd from "@/components/VignetteAd";
+import AdBanner from "@/components/AdBanner";
 import { useQuiz } from "@/hooks/use-quiz";
 
 export default function Home() {
@@ -25,6 +26,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
+      {/* Top Ad Banner */}
+      <AdBanner position="top" />
+      
       {screen === 'start' && (
         <StartScreen onStartTest={handleStartTest} />
       )}
@@ -42,6 +46,9 @@ export default function Home() {
           onRestart={handleRestart}
         />
       )}
+      
+      {/* Bottom Ad Banner */}
+      <AdBanner position="bottom" />
       
       {/* Vignette Ad - Shows on start screen */}
       {screen === 'start' && <VignetteAd />}

@@ -102,9 +102,9 @@ export default function QuestionScreen({ quiz, onComplete }: QuestionScreenProps
           </CardContent>
         </Card>
         
-        {/* AdSense Block Ad - Show on middle questions */}
-        {quiz.currentQuestion === 4 && (
-          <div className="mt-8">
+        {/* AdSense Block Ad - Show on multiple questions */}
+        {(quiz.currentQuestion === 2 || quiz.currentQuestion === 5 || quiz.currentQuestion === 8) && (
+          <div className="mt-6">
             <AdSenseAd 
               adSlot="2345678901"
               className="text-center"
