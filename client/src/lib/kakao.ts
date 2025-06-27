@@ -7,7 +7,7 @@ declare global {
 export const initializeKakao = () => {
   if (typeof window !== 'undefined' && window.Kakao && !window.Kakao.isInitialized()) {
     // Replace with your actual Kakao App Key
-    window.Kakao.init('YOUR_KAKAO_APP_KEY');
+    window.Kakao.init('ffedd29f24efc642832be656deca1820');
   }
 };
 
