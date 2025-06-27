@@ -51,21 +51,23 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
           <p className="text-xl text-indigo-200">{result.subtitle}</p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-3 gap-6">
           {/* Personality Chart */}
-          <Card className="bg-white/10 backdrop-blur-lg border-white/20 rounded-3xl">
-            <CardContent className="p-8">
-              <h2 className="text-2xl font-bold mb-6 text-center text-white">성향 분석</h2>
-              <div className="flex justify-center">
-                <RadarChart traits={result.traits} />
-              </div>
-            </CardContent>
-          </Card>
+          <div className="lg:col-span-1">
+            <Card className="bg-white/10 backdrop-blur-lg border-white/20 rounded-3xl">
+              <CardContent className="p-6">
+                <h2 className="text-xl font-bold mb-4 text-center text-white">성향 분석</h2>
+                <div className="flex justify-center">
+                  <RadarChart traits={result.traits} />
+                </div>
+              </CardContent>
+            </Card>
+          </div>
 
           {/* Result Details */}
-          <div className="space-y-6">
+          <div className="lg:col-span-2 space-y-4">
             <Card className="bg-white/10 backdrop-blur-lg border-white/20 rounded-2xl">
-              <CardContent className="p-6">
+              <CardContent className="p-4">
                 <h3 className="text-lg font-semibold mb-3 flex items-center text-white">
                   <span className="mr-2">🎓</span> 학창시절 모습
                 </h3>
@@ -74,7 +76,7 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
             </Card>
 
             <Card className="bg-white/10 backdrop-blur-lg border-white/20 rounded-2xl">
-              <CardContent className="p-6">
+              <CardContent className="p-4">
                 <h3 className="text-lg font-semibold mb-3 flex items-center text-white">
                   <span className="mr-2">💼</span> 현재 직업 성향
                 </h3>
@@ -83,7 +85,7 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
             </Card>
 
             <Card className="bg-white/10 backdrop-blur-lg border-white/20 rounded-2xl">
-              <CardContent className="p-6">
+              <CardContent className="p-4">
                 <h3 className="text-lg font-semibold mb-3 flex items-center text-white">
                   <span className="mr-2">🧠</span> MBTI 성향 분석
                 </h3>
@@ -91,7 +93,7 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
               </CardContent>
             </Card>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Card className="bg-green-500/20 backdrop-blur-lg border-green-500/30 rounded-2xl">
                 <CardContent className="p-4">
                   <h4 className="font-semibold mb-2 flex items-center text-white">
@@ -113,11 +115,11 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
 
             {/* Detailed Trait Analysis */}
             <Card className="bg-white/10 backdrop-blur-lg border-white/20 rounded-2xl">
-              <CardContent className="p-6">
+              <CardContent className="p-4">
                 <h3 className="text-lg font-semibold mb-4 flex items-center text-white">
                   <span className="mr-2">📊</span> 상세 성향 분석
                 </h3>
-                <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="grid grid-cols-2 gap-3 text-sm">
                   {Object.entries(result.traits).map(([trait, value]) => {
                     const traitNames: Record<string, string> = {
                       focus: '집중력',
@@ -132,13 +134,13 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
                       <div key={trait} className="flex justify-between items-center">
                         <span className="text-indigo-200">{traitNames[trait]}</span>
                         <div className="flex items-center space-x-2">
-                          <div className="w-16 h-2 bg-white/20 rounded-full overflow-hidden">
+                          <div className="w-12 h-2 bg-white/20 rounded-full overflow-hidden">
                             <div 
                               className="h-full bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transition-all duration-1000"
                               style={{ width: `${value}%` }}
                             />
                           </div>
-                          <span className="text-white font-medium w-8 text-right">{value}</span>
+                          <span className="text-white font-medium w-6 text-right">{value}</span>
                         </div>
                       </div>
                     );
@@ -150,7 +152,7 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
         </div>
 
         {/* AdSense Block Ad */}
-        <div className="mt-12">
+        <div className="mt-8">
           <AdSenseAd 
             adSlot="3456789012"
             className="text-center"
@@ -158,7 +160,7 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
         </div>
 
         {/* Share Buttons */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-6">
           <div className="space-y-4">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button

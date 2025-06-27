@@ -10,7 +10,17 @@ export interface Question {
   answers: Answer[];
 }
 
-export const questions: Question[] = [
+// Shuffle function for randomizing arrays
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+const baseQuestions: Question[] = [
   {
     question: "친구들과 함께 새로운 카페에 갔을 때, 나는 주로...",
     answers: [
@@ -102,3 +112,13 @@ export const questions: Question[] = [
     ]
   }
 ];
+
+// Generate shuffled questions - this will be called each time the module is imported
+function generateShuffledQuestions(): Question[] {
+  return shuffleArray(baseQuestions).map(question => ({
+    ...question,
+    answers: shuffleArray(question.answers)
+  }));
+}
+
+export const questions: Question[] = generateShuffledQuestions();
