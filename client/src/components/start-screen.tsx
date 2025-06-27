@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import AdSenseAd from "@/components/AdSenseAd";
 
 interface StartScreenProps {
   onStartTest: () => void;
@@ -44,6 +45,14 @@ export default function StartScreen({ onStartTest }: StartScreenProps) {
             <p className="text-xs text-gray-500 mt-4">약 2분 소요</p>
           </CardContent>
         </Card>
+        
+        {/* AdSense Block Ad */}
+        <div className="mt-8">
+          <AdSenseAd 
+            adSlot="1234567890"
+            className="text-center"
+          />
+        </div>
       </div>
     </div>
   );

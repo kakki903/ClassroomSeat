@@ -2,6 +2,7 @@ import { useState } from "react";
 import StartScreen from "@/components/start-screen";
 import QuestionScreen from "@/components/question-screen";
 import ResultScreen from "@/components/result-screen";
+import VignetteAd from "@/components/VignetteAd";
 import { useQuiz } from "@/hooks/use-quiz";
 
 export default function Home() {
@@ -41,6 +42,9 @@ export default function Home() {
           onRestart={handleRestart}
         />
       )}
+      
+      {/* Vignette Ad - Shows on start screen */}
+      {screen === 'start' && <VignetteAd />}
     </div>
   );
 }

@@ -76,11 +76,31 @@ The application is configured for Replit deployment with:
 
 The deployment uses autoscale deployment target with automatic build and start commands configured in `.replit` file.
 
+## Recent Changes
+
+### June 27, 2025 - Major Feature Updates
+- **Google AdSense Integration**: Added block ads on start, quiz (middle), and result screens
+- **Vignette Ad Implementation**: Full-screen interstitial ad on start screen with 3-second delay
+- **Kakao Talk Sharing**: Integrated Kakao SDK for Korean social media sharing
+- **Enhanced Quiz Logic**: Fixed scoring calculation with weighted dominant traits
+- **Improved Result Descriptions**: Added detailed personality analysis with longer, more engaging descriptions
+- **Visual Enhancements**: Added trait progress bars and detailed scoring breakdown on result screen
+- **Responsive Design**: Improved mobile layout for ads and sharing buttons
+
+### Technical Improvements
+- **Scoring Algorithm**: Implemented weighted trait matching for more accurate personality type detection
+- **State Management**: Added answer history tracking for proper back navigation
+- **Debug Logging**: Added console logging for quiz score calculation debugging
+- **Ad Components**: Created reusable AdSense and Vignette ad components
+- **Social Integration**: Kakao sharing with custom messages and app key configuration
+
 ## Changelog
 
 ```
 Changelog:
-- June 27, 2025. Initial setup
+- June 27, 2025. Initial setup with React, TypeScript, Tailwind CSS
+- June 27, 2025. Added Korean psychology test with 10 questions, 9 seat types
+- June 27, 2025. Integrated AdSense, Kakao sharing, enhanced results
 ```
 
 ## User Preferences

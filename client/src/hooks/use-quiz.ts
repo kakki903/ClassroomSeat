@@ -21,9 +21,17 @@ export function useQuiz(): UseQuizReturn {
     leadership: 0,
     freedom: 0
   });
+  const [answerHistory, setAnswerHistory] = useState<number[]>([]);
 
   const answerQuestion = (answerIndex: number) => {
     const selectedAnswer = questions[currentQuestion].answers[answerIndex];
+    
+    // Store answer history
+    setAnswerHistory(prev => {
+      const newHistory = [...prev];
+      newHistory[currentQuestion] = answerIndex;
+      return newHistory;
+    });
     
     // Add selected answer scores to user totals
     const newScores = { ...userScores };
@@ -37,6 +45,24 @@ export function useQuiz(): UseQuizReturn {
 
   const previousQuestion = () => {
     if (currentQuestion > 0) {
+      // Remove the score from the current question we're going back from
+      const prevAnswer = answerHistory[currentQuestion - 1];
+      if (prevAnswer !== undefined) {
+        const prevSelectedAnswer = questions[currentQuestion - 1].answers[prevAnswer];
+        const newScores = { ...userScores };
+        Object.keys(prevSelectedAnswer.scores).forEach(trait => {
+          newScores[trait] = Math.max(0, (newScores[trait] || 0) - prevSelectedAnswer.scores[trait]);
+        });
+        setUserScores(newScores);
+      }
+      
+      // Remove answer from history
+      setAnswerHistory(prev => {
+        const newHistory = [...prev];
+        newHistory[currentQuestion - 1] = undefined as any;
+        return newHistory;
+      });
+      
       setCurrentQuestion(prev => prev - 1);
     }
   };
@@ -47,6 +73,7 @@ export function useQuiz(): UseQuizReturn {
 
   const reset = () => {
     setCurrentQuestion(0);
+    setAnswerHistory([]);
     setUserScores({
       focus: 0,
       observation: 0,

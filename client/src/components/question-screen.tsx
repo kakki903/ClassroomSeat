@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { questions } from "@/data/questions";
+import AdSenseAd from "@/components/AdSenseAd";
 import type { UseQuizReturn } from "@/hooks/use-quiz";
 
 interface QuestionScreenProps {
@@ -100,6 +101,16 @@ export default function QuestionScreen({ quiz, onComplete }: QuestionScreenProps
             </div>
           </CardContent>
         </Card>
+        
+        {/* AdSense Block Ad - Show on middle questions */}
+        {quiz.currentQuestion === 4 && (
+          <div className="mt-8">
+            <AdSenseAd 
+              adSlot="2345678901"
+              className="text-center"
+            />
+          </div>
+        )}
       </div>
     </div>
   );
