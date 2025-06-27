@@ -23,9 +23,13 @@ export default function RadarChart({ traits }: RadarChartProps) {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    // Set fixed canvas size
+    canvas.width = 300;
+    canvas.height = 300;
+    
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
-    const radius = 120;
+    const radius = 110;
 
     // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -101,11 +105,12 @@ export default function RadarChart({ traits }: RadarChartProps) {
   }, [traits]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      width={300}
-      height={300}
-      className="radar-chart"
-    />
+    <div className="flex justify-center items-center w-full">
+      <canvas
+        ref={canvasRef}
+        className="w-full h-auto max-w-[280px] max-h-[280px]"
+        style={{ aspectRatio: '1/1' }}
+      />
+    </div>
   );
 }

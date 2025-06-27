@@ -51,21 +51,23 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
           <p className="text-xl text-indigo-200">{result.subtitle}</p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-5 gap-6">
           {/* Personality Chart */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-2">
             <Card className="bg-white/10 backdrop-blur-lg border-white/20 rounded-3xl">
               <CardContent className="p-6">
                 <h2 className="text-xl font-bold mb-4 text-center text-white">성향 분석</h2>
                 <div className="flex justify-center">
-                  <RadarChart traits={result.traits} />
+                  <div className="w-full max-w-[280px]">
+                    <RadarChart traits={result.traits} />
+                  </div>
                 </div>
               </CardContent>
             </Card>
           </div>
 
           {/* Result Details */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="lg:col-span-3 space-y-4">
             <Card className="bg-white/10 backdrop-blur-lg border-white/20 rounded-2xl">
               <CardContent className="p-4">
                 <h3 className="text-lg font-semibold mb-3 flex items-center text-white">
@@ -151,16 +153,8 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
           </div>
         </div>
 
-        {/* AdSense Block Ad */}
-        <div className="mt-8">
-          <AdSenseAd 
-            adSlot="3456789012"
-            className="text-center"
-          />
-        </div>
-
         {/* Share Buttons */}
-        <div className="text-center mt-6">
+        <div className="text-center mt-8">
           <div className="space-y-4">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -183,6 +177,14 @@ export default function ResultScreen({ result, onRestart }: ResultScreenProps) {
             >
               다시 테스트하기
             </Button>
+          </div>
+
+          {/* AdSense Block Ad */}
+          <div className="mt-12">
+            <AdSenseAd 
+              adSlot="3456789012"
+              className="text-center"
+            />
           </div>
         </div>
       </div>
