@@ -39,7 +39,7 @@ export default function VignetteAd() {
         <ins
           className="adsbygoogle"
           style={{ display: 'block' }}
-          data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+          data-ad-client="ca-pub-5063634047102858"
           data-ad-slot="4567890123"
           data-ad-format="auto"
           data-full-width-responsive="true"
