@@ -34,7 +34,7 @@ export default function AdBanner({ position }: AdBannerProps) {
   const adSlot = position === 'top' ? '1111111111' : '2222222222';
 
   return (
-    <div className={`w-full ${position === 'top' ? 'sticky top-0 z-50' : 'mt-8'} bg-white/5 backdrop-blur-sm border-t border-white/10`}>
+    <div className={`w-full ${position === 'top' ? 'top-0 z-50' : 'mt-8'} bg-white/5 backdrop-blur-sm border-t border-white/10`}>
       <div className="max-w-4xl mx-auto p-2">
         <ins
           ref={adRef}
