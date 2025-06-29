@@ -39,7 +39,7 @@ export default function AdBanner({ position }: AdBannerProps) {
         <ins
           ref={adRef}
           className="adsbygoogle"
-          style={{ display: 'block' }}
+          style={{ display: 'block', height: '90px' }}
           data-ad-client="ca-pub-5063634047102858"
           data-ad-slot={adSlot}
           data-ad-format="horizontal"
